@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Arcane Project",
+        "description": "Explore ruínas antigas e tenha combates mágicos contra criaturas.",
+        "genre": ["Aventura", "Ação"],
+        "page": "ArcaneProject.html"
+    },
+    {
+        "title": "Magic Builder",
+        "description": "Crie magias e habilidades com apenas um clique.",
+        "genre": ["Plugin"],
+        "page": "MagicBuilder.html"
+    },
+    {
+        "title": "Subcinctus",
+        "description": "Embarque em uma jornada épica para salvar Veltraxis. Suas escolhas moldam a história.",
+        "genre": ["RPG", "Aventura"],
+        "page": "Subcinctus.html"
+    },
+    {
+        "title": "TimeKeeper Intern",
+        "description": "Embarque em uma jornada épica para salvar Veltraxis. Suas escolhas moldam a história.",
+        "genre": ["Plataforma", "Puzzle"],
+        "page": "TimeKeeperIntern.html"
+    },
+    {
+        "title": "Robot's Last Stand",
+        "description": "Embarque em uma jornada épica para salvar Veltraxis. Suas escolhas moldam a história.",
+        "genre": ["Shooter", "Wave"],
+        "page": "RobotsLastStand.html"
+    }
+]
