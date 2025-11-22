@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <title>Ninbax_dev</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1>Dev: Ninbax</h1>
+        </div>
+        <div class="header-center">
+            <h2>Ninbax Forge</h2>  
+        </div>
+        <div class="header-right">
+            <input type="text" id="busca" placeholder="Procure por um projeto meu...">
+            <button id="botao-busca">Buscar</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <button id="menu-btn" title="Abrir menu">&#9776;</button>
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li id="show-about">Início</li>
+                <li id="filter-jogos">Jogos</li>
+                <li id="filter-plugins">Plugins</li>
+                <li>Redes</li>
+                <li id="show-contact">Contato</li>
+              </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="about-section">
+                <div class="about-text">
+                    <h2>Sobre mim</h2>
+                    <p>
+                        Olá, eu sou o Cleber (Ninbax), desenvolvedor indie que gosta de criar jogos com
+                        magia, narrativas e pixel-art. Atualmente estou criando plugins e
+                        protótipos enquanto estudo para melhorar meus projetos.
+                    </p>
+                    <h2>Redes</h2>
+                    <a href="https://www.reddit.com/user/Educational_Gas_5577/" target="_blank">
+                        <i class="fa-brands fa-reddit"></i>Reddit
+                    </a>
+                    <a href="https://www.linkedin.com/in/cleber-fernandes-94156139a/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>Linkedin
+                    </a>
+                    <a href="https://bsky.app/profile/ninbaxdev.bsky.social" target="_blank">
+                        <i class="fa-brands fa-bluesky"></i>BlueSky
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="./assets/img/logo.png" alt="logo do Ninbax">
+                </div>
+            </section>
+            <section id="resultados-busca">
+                <div class="card-placeholder">
+                    <h2>Meus Projetos</h2>
+                    <p>Um projeto aleatório será exibido aqui. Use a busca ou os filtros para ver outros!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="contact-overlay" class="overlay">
+        <div class="overlay-content">
+            <span id="close-contact" class="close-btn" title="Fechar">&times;</span>
+            <h2>Contato</h2>
+            <p>Meu e-mail para contato é:</p>
+            <p class="email">ninbax.dev3@gmail.com</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Ninbax_Dev</p>
+        <ul class="footer-links">
+            <li>
+                <span class="tooltip" data-tip="Acesse meu Perfil">
+                    <a href="https://ninbax-dev.itch.io/" target="_blank">itch.io</a>
+                </span>
+            </li>
+            <li>
+                <span class="tooltip" data-tip="Dev Indie">
+                    <a href="#">Sobre</a>
+                </span>
+            </li>
+            <li>
+                <span class="tooltip" data-tip="ninbax.dev3@gmail.com">
+                    <a href="#">Contato</a>
+                </span>
+            </li>
+        </ul>
+    </footer>
+
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/randomProject.js"></script>
+</body>
+</html>

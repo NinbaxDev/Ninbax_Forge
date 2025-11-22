@@ -1,0 +1,128 @@
+/* --- Estilos para a página de projeto individual --- */
+
+.back-button
+{
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'PixelFont', sans-serif;
+    transition: color 0.2s ease;
+}
+
+.back-button:hover
+{
+    color: var(--primary-color);
+}
+
+.project-container
+{
+    max-width: 80rem;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    color: var(--secondary-color);
+}
+
+.project-hero
+{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-logo
+{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--tertiary-color);
+    margin-bottom: 1.5rem;
+}
+
+.project-description
+{
+    font-size: 1.3rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.project-container section
+{
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--tertiary-color);
+}
+
+.project-container h2
+{
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: 'PixelFont', sans-serif;
+}
+
+.pproject-gallery
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.project-links a
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* --- Estilos para o Carrossel de Imagens --- */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Defina a largura máxima do seu carrossel */
+    margin: 1rem auto;
+    overflow: hidden; /* Esconde as imagens que estão fora da área visível */
+    border-radius: 10px;
+    border: 2px solid var(--tertiary-color);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animação de slide */
+}
+
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.2s ease;
+    border-radius: 5px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}

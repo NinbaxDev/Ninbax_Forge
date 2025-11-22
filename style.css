@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'); /* Importa a fonte Quicksand do Google Fonts */
+
+@font-face
+{
+  font-family: 'PixelFont';
+  src: url('assets/font/Jersey15-Regular.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box; /* Garante que padding e borda não alterem a largura final dos elementos */
+}
+
+:root
+{
+    /* Paleta de cores do projeto */
+    --primary-color: #009c22;
+    --secondary-color: #e0e0e0;
+    --tertiary-color: #838383;
+    --bg-color: #42454e;
+    --bg-color-cov: #00000080;
+    --bg-color-hea: #1d1e22;
+    --bg-color-foo: #000000bd;
+}
+
+body
+{
+    margin: 0;
+    background-color: var(--bg-color); /* Cor de fundo caso não tenha imagem */
+    /* Adiciona uma camada preta com 50% de opacidade sobre a imagem */
+    background-image: linear-gradient(var(--bg-color-cov), var(--bg-color-cov)), url('assets/img/wall-bg.jpg');
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+    color: var(--secondary-color);
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe no mínimo a altura total da tela */
+}
+
+.content-wrapper
+{
+    position: relative; /* ESSENCIAL: Define o contexto de posicionamento para a sidebar */
+    flex: 1; /* Faz o conteúdo principal expandir para ocupar o espaço disponível, empurrando o footer para baixo */
+}
+
+/* Estilização do Cabeçalho */
+.header
+{
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar */
+    top: 0;
+    background: var(--bg-color-hea);
+    z-index: 10; /* Garante que o header fique sobre outros elementos */
+    border-bottom: 1px solid var(--tertiary-color);
+    gap: 1rem;
+    font-family: 'PixelFont', sans-serif;
+}
+
+.header-left h1
+{
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.header-center h2
+{
+    font-size: 5rem;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.header-right
+{
+    display: flex;
+    align-items: center;
+}
+
+/* Campo de busca e botão */
+.header-right input {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--tertiary-color);
+    background: var(--bg-color);
+    font-family: inherit;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    width: 25rem;
+    color: var(--secondary-color);
+    margin-right: .5rem;
+}
+.header-right input::placeholder {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--tertiary-color);
+}
+.header-right input:focus {
+    outline: none;
+    border-color: var(--bg-color);
+    box-shadow: 0 0 0 0.1rem var(--tertiary-color);
+}
+
+#botao-busca {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--bg-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: var(--bg-color);
+    color: var(--secondary-color);
+}
+
+#botao-busca:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 0 0.1rem var(--primary-color);
+}
+
+#botao-busca:active
+{
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* O container principal do conteúdo, ao lado da sidebar */
+.main-content
+{
+    max-width: 80rem;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 2rem 1rem;
+} 
+
+/* Seção SOBRE MIM */
+.about-section
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 40px 60px;
+}
+
+.about-text
+{
+    max-width: 50%;
+}
+
+.about-text h2 
+{
+    margin-bottom: 10px;
+}
+
+.about-text p
+{
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-text a
+{
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: var(--primary-color)
+}
+
+.about-image img
+{
+    width: 200px;
+    height: auto;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 3px solid var(--tertiary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo para a mensagem de "nenhum resultado" */
+.search-message
+{
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-color); /* Garante que o texto seja visível */
+    font-size: 1.2rem;
+}
+
+.suggestions-container {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* Classe para esconder as sugestões por padrão */
+.hidden {
+    display: none;
+}
+
+.suggestion
+{
+    background-color: var(--primary-color);
+    color: var(--bg-color-hea);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Estilo para o card de projeto aleatório */
+.card {
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--bg-color);
+    padding-bottom: 1.5rem;
+}
+
+.card h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.card .card-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Seção de resultados da busca */
+#resultados-busca
+{
+    margin-top: 40px;
+    padding: 0 60px;
+} 
+
+/* Barra lateral escondida */
+.sidebar
+{
+    left: -220px;
+    width: 200px;
+    background: var(--bg-color-hea);
+    color: var(--secondary-color);
+    padding: 4rem 1.5rem;
+    position: absolute;
+    left: -240px;      /* começa fora da tela */
+    top: 0;
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+/* Quando aberta */
+.sidebar.open
+{
+    left: 0;
+}
+
+/* Botão que controla a Sidebar */
+#menu-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 20; /* Fica na frente da sidebar */
+    background: var(--bg-color-hea);
+    color: var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: left 0.3s ease; /* Anima o movimento lateral */
+}
+
+/* Quando a sidebar está aberta, move o botão para a direita */
+.sidebar.open + #menu-btn {
+    left: 210px; /* Largura da sidebar (200px) + um pequeno espaço (10px) */
+}
+
+/* Estilos para o overlay de contato */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color-cov); /* Fundo semi-transparente */
+  display: none; /* Começa oculto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que fique na frente de outros elementos */
+}
+
+.overlay-content {
+  background-color: var(--bg-color-hea); /* Cor de fundo da caixa */
+  color: var(--secondary-color);
+  padding: 30px 40px;
+  border-radius: 15px; /* Bordas arredondadas */
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px var(--bg-color-cov);
+}
+
+.overlay-content h2 {
+  margin-top: 0;
+}
+
+.overlay-content .email {
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: var(--bg-color);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: var(--tertiary-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--secondary-color);
+}
+
+/* Estilo para cada item (artigo) na lista de resultados */
+article {
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 1px solid var(--bg-color);
+    padding-bottom: 1.5rem;
+}
+
+article:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+article h2 {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+article p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+article p strong {
+    color: var(--tertiary-color);
+    font-weight: 400;
+}
+
+article a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 200;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+
+/* Estilização do Rodapé */
+.footer {
+    width: 100%;
+    color: var(--tertiary-color);
+    background-color: var(--bg-color-foo);
+    padding: 20px;
+    border-top: 1px solid #3c4043;
+    font-size: 0.8rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color); /* Muda a cor do link ao passar o mouse (variável não definida) */
+}
+
+/* Tooltip que aparece ao passar o mouse sobre "Sobre" */
+.tooltip {
+  position: relative; /* Cria o contexto de posicionamento para o tooltip */
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Caixinha do tooltip */
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute; /* Posiciona em relação ao .tooltip */
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza o tooltip */
+  
+  background: #222;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Impede que o tooltip interaja com o mouse */
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Flecha do tooltip */
+.tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 110%; /* Posiciona a flecha entre o texto e a caixa do tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  border-width: 5px;
+  border-style: solid;
+  border-color: #222 transparent transparent transparent; /* Cria um triângulo com bordas */
+
+  opacity: 0; /* Também começa invisível */
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Mostra o tooltip e a flecha ao passar o mouse */
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .header-center h2 {
+        font-size: 3rem;
+    }
+    .header-right input {
+        width: 90vw;
+        font-size: 1.2rem;
+    }
+    .main-content {
+        padding: 0 1rem;
+    }
+    article:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-left h1 {
+        font-size: 2rem;
+    }
+    .header-center h2 {
+        font-size: 2.5rem;
+    }
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+    }
+    .header-right input,
+    .header-right input::placeholder {
+        font-size: 1rem;
+        width: 100%;
+    }
+    #botao-busca {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    article h2 {
+        font-size: 1.3rem;
+    }
+    .footer {
+        display: none;
+    }
+}
